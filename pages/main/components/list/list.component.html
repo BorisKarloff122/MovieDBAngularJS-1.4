@@ -1,0 +1,14 @@
+<div class="container" ng-controller="listController as listCtrl"  ng-click="listCtrl.openPopup()">
+    <div class="card" ng-if='listCtrl.resp' ng-repeat="movie in listCtrl.resp">
+        <div class="imgBlock">
+            <img alt="" src="{{movie.poster_path | imgNameRectifier}}">
+        </div>
+        <div class="name">
+            {{movie.title}}
+        </div>
+    </div>
+
+</div>
+
+<modal-block></modal-block>
+

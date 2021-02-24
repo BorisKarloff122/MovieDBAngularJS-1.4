@@ -1,0 +1,42 @@
+<div ng-controller="modalController as modalCtrl"
+     style="background-image:url({{movie.poster_path | imgNameRectifier }});
+            background-size:100% auto;
+            background-repeat: no-repeat"
+     class="modal" ng-class="openModal? 'show': ''">
+
+
+    <div class="backposter"></div>
+    <div class="modal_container">
+        <div class="container">
+            <div ng-click="modalCtrl.closeModal()" class="close">×</div>
+            <div class="img_block left">
+                <img src="{{modalCtrl.movie.poster_path | imgNameRectifier}}">
+            </div>
+            <div class="right">
+                <div class="row button_row" ng-controller="switchController">
+                    <button class="button" ng-click="previousMovie()">Prev</button>
+                    <button class="button" ng-click="nextMovie()">Next</button>
+                </div>
+                <div class="row">
+                    <div class="header">
+                        {{modalCtrl.movie.title}}
+                    </div>
+                    <div class="fav" ng-controller="switchController" ng-click="favorites()">
+                        {{modalCtrl.favor}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text vote_avarage">
+                        {{modalCtrl.movie.vote_average}}
+                    </div>
+                    <div class="text vote_count">
+                        {{modalCtrl.movie.vote_count}}
+                    </div>
+                </div>
+                <div class="overview text">
+                    {{modalCtrl.movie.overview}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
