@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2688a740-2ca3-4cc4-8155-821665962ef5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/account/account.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/account/account.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main/components/card/card.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/shared/dataService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/components/list/list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/components/list/list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/components/modal/modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/components/modal/modal.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/main/main.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main/main.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/dataService.js" beforeDir="false" afterPath="$PROJECT_DIR$/shared/dataService.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -34,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
+            <state relative-caret-position="525">
               <caret line="136" selection-start-line="136" selection-end-line="136" />
             </state>
           </provider>
@@ -43,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/main/components/list/list.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="135">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -52,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/main/main.module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+            <state relative-caret-position="300">
+              <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -61,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shared/dataService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+            <state>
+              <caret column="44" lean-forward="true" selection-start-column="44" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -70,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/main/components/modal/modal.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+            <state relative-caret-position="165">
+              <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -129,22 +126,24 @@
         <option value="$PROJECT_DIR$/pages/account/account.module.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
+        <option value="$PROJECT_DIR$/shared/dataService.js" />
         <option value="$PROJECT_DIR$/pages/main/components/list/list.component.html" />
         <option value="$PROJECT_DIR$/pages/main/components/modal/modal.component.html" />
-        <option value="$PROJECT_DIR$/shared/dataService.js" />
         <option value="$PROJECT_DIR$/pages/main/main.module.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="961" />
     <option name="width" value="959" />
-    <option name="height" value="1040" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,7 +193,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,20 +200,20 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mdb(AJS)" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components/header" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pages/components/header" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -247,18 +245,20 @@
       <workItem from="1614092271952" duration="3348000" />
       <workItem from="1614150761693" duration="14000" />
       <workItem from="1614151846092" duration="4005000" />
-      <workItem from="1614166136632" duration="14690000" />
+      <workItem from="1614166136632" duration="15372000" />
+      <workItem from="1614236618536" duration="370000" />
+      <workItem from="1614252272622" duration="10751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23647000" />
+    <option name="totallyTimeSpent" value="35450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1040" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19989339" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2016851" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Alibaba Cloud Explorer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -274,12 +274,12 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Codeup" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Alibaba Function Compute" order="3" />
-      <window_info anchor="right" id="Alibaba ROS Templates" order="4" />
+      <window_info anchor="right" id="Alibaba Function Compute" order="3" show_stripe_button="false" />
+      <window_info anchor="right" id="Alibaba ROS Templates" order="4" show_stripe_button="false" weight="0.32995737" />
       <window_info anchor="right" id="Alibaba Log Console" order="5" weight="0.32995737" />
     </layout>
     <layout-to-restore>
@@ -368,13 +368,7 @@
     <entry file="file://$PROJECT_DIR$/pages/account/component/list/list.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/main/components/card/card.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/main/components/card/card.component.html" />
     <entry file="file://$PROJECT_DIR$/components/footer/footer.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -389,31 +383,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
+        <state relative-caret-position="525">
           <caret line="136" selection-start-line="136" selection-end-line="136" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/main/components/list/list.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/main/components/modal/modal.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="165">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -422,15 +402,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/dataService.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" lean-forward="true" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/main/components/list/list.component.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/main/main.module.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        <state relative-caret-position="300">
+          <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
         </state>
       </provider>
     </entry>

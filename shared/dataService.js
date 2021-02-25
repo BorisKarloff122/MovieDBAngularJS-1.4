@@ -11,11 +11,3 @@ app.service('dataTransfer', function () {
     }
 });
 
-
-//
-// account.filter('imgNameRectifier', function () {
-//     return function (text) {
-//         return 'http://image.tmdb.org/t/p/w342' + text;
-//     };
-// });
-

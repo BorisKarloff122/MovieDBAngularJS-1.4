@@ -1,8 +1,7 @@
-<div ng-controller="modalController as modalCtrl"
-     style="background-image:url({{movie.poster_path | imgNameRectifier }});
+<div style="background-image:url({{movie.poster_path | imgNameRectifier }});
             background-size:100% auto;
             background-repeat: no-repeat"
-     class="modal" ng-class="openModal? 'show': ''">
+     class="modal" ng-class="modalCtrl.openModal? 'show': ''">
 
 
     <div class="backposter"></div>
@@ -10,7 +9,7 @@
         <div class="container">
             <div ng-click="modalCtrl.closeModal()" class="close">×</div>
             <div class="img_block left">
-                <img src="{{modalCtrl.movie.poster_path | imgNameRectifier}}">
+                <img src="{{movie.poster_path | imgNameRectifier}}">
             </div>
             <div class="right">
                 <div class="row button_row" ng-controller="switchController">

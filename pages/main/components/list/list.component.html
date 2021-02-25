@@ -1,4 +1,4 @@
-<div class="container" ng-controller="listController as listCtrl"  ng-click="listCtrl.openPopup()">
+<div class="container"  ng-click="listCtrl.openPopup($index)">
     <div class="card" ng-if='listCtrl.resp' ng-repeat="movie in listCtrl.resp">
         <div class="imgBlock">
             <img alt="" src="{{movie.poster_path | imgNameRectifier}}">
@@ -7,8 +7,6 @@
             {{movie.title}}
         </div>
     </div>
-
+    <modal-block></modal-block>
 </div>
-
-<modal-block></modal-block>
 
