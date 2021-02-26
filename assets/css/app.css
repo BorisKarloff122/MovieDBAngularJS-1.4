@@ -12,9 +12,19 @@ body{
     margin:0;
 }
 
+.modal .container{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    align-items: center;justify-content:space-between;
+}
+
+
+.modal .container .right{
+    max-width:800px
+}
+
 header{
-
-
     width:100%;
     left:0;
     background-color:#9e9e9e;
@@ -133,4 +143,9 @@ header{
 
 .fav{
     cursor: pointer;
+}
+
+
+.icon{
+    cursor:pointer;
 }

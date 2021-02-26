@@ -54,8 +54,7 @@ function listController ($http, dataTransfer, $scope) {
 
     $scope.$on('moviesChange', function () {
         listCtrl.openPopup = function openPopup(index) {
-            dataTransfer.movie = listCtrl.resp[index];
-
+            dataTransfer.movie = dataTransfer.movies[index];
             $scope.$broadcast('openModal', dataTransfer.movie);
         };
     });
@@ -63,19 +62,120 @@ function listController ($http, dataTransfer, $scope) {
 
 function modalController ($scope, dataTransfer) {
     var modalCtrl = this;
-    modalCtrl.openModal = false;
+    var favorMovies = getFavorites();
 
+    function getFavorites(){
+        if(JSON.parse(localStorage.getItem('favs')) === null){
+            return [];
+        }
+        else{
+            return JSON.parse(localStorage.getItem('favs'));
+        }
+    }
+
+    modalCtrl.favor = 'Add to favorites';
     $scope.$on('openModal', function (event, data) {
         modalCtrl.openModal = true;
         modalCtrl.movie = data;
-        console.log(data)
     });
-    
+
+    $scope.$on('nextMovie', function (event, data) {
+        modalCtrl.movieSet(data);
+        changeButton();
+    });
+
+    $scope.$on('prevMovie', function (event, data) {
+        modalCtrl.movie = data;
+        changeButton();
+    });
+
     modalCtrl.closeModal = function closeModal (){
         modalCtrl.openModal = false;
+    };
+
+    modalCtrl.movieSet = function (data) {
+        modalCtrl.movie = data
+    };
+
+    function checkFavorites(){
+        var title = dataTransfer.movie.title;
+        return favorMovies.indexOf(favorMovies.find((entry) => entry.title === title));
     }
+
+    function changeButton() {
+        var index = checkFavorites();
+        if (index === -1){
+            modalCtrl.favor = 'Add to favorites';
+        }
+        else{
+            modalCtrl.favor = 'Remove from favorites';
+        }
+
+    }
+
 }
 
-app.controller('switchController', function () {
+app.controller('switchController', function ($scope, dataTransfer) {
+
+
     var switchCtrl = this;
+    var favorMovies = getFavorites();
+
+     function getFavorites(){
+        if(JSON.parse(localStorage.getItem('favs')) === null){
+            return [];
+        }
+        else{
+           return JSON.parse(localStorage.getItem('favs'));
+        }
+    }
+
+    switchCtrl.getIndex = function(){
+        var title = dataTransfer.movie.title;
+        var movies = dataTransfer.movies;
+        return movies.indexOf(movies.find((entry) => entry.title === title));
+    };
+
+    function checkFavorites (){
+        var title = dataTransfer.movie.title;
+        return favorMovies.indexOf(favorMovies.find((entry) => entry.title === title));
+    }
+
+    switchCtrl.nextMovie = function nextMovie() {
+        var index = switchCtrl.getIndex();
+        if (index < dataTransfer.movies.length - 1){
+            sendPack(dataTransfer.movies[index + 1], 'nextMovie');
+        }
+        else{
+            sendPack(dataTransfer.movies[0], 'nextMovie');
+        }
+
+    };
+
+    switchCtrl.prevMovie = function prevMovie() {
+        var index = switchCtrl.getIndex();
+        if (index > 0 ){
+            sendPack(dataTransfer.movies[index - 1], 'prevMovie');
+        }
+        else{
+            sendPack(dataTransfer.movies[dataTransfer.movies.length - 1], 'prevMovie');
+        }
+    };
+
+    switchCtrl.favorites = function favorites () {
+        if(favorMovies === [] || checkFavorites() === -1){
+            favorMovies.push(dataTransfer.movie);
+            localStorage.setItem('favs', JSON.stringify(favorMovies));
+
+        }
+        else{
+            favorMovies.splice(checkFavorites(), 1);
+            localStorage.setItem('favs', JSON.stringify(favorMovies));
+        }
+    };
+
+    function sendPack (data, event) {
+        dataTransfer.movie = data;
+        $scope.$emit(event, data);
+    }
 });
