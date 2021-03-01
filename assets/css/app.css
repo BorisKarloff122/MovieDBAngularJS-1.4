@@ -31,7 +31,11 @@ header{
     top:0;
 }
 
+list-block .container{
+    justify-content: center;
+    max-width:1200px;
 
+}
 .descriptor{
     margin-right:10px;
     font-weight:bold;
@@ -42,17 +46,31 @@ header{
 .container{
     display:flex;
     align-items: center;
-    justify-content: center;
+    max-width:1440px;
+    justify-content: space-between;
+    margin:0 auto;
     flex-wrap: wrap;
 }
 
 .card{
-    width:300px;
+    width:200px;
     height:auto;
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
     margin:15px;
+    flex-direction:column;
 }
 
+.card .title{
+    margin-top:10px;
+}
 
+.card img{
+    width:100%;
+    height:auto;
+    box-sizing: border-box;
+}
 
 .modal{
     font-family: SansSerif;
@@ -140,12 +158,48 @@ header{
     justify-content: center;
 }
 
-
 .fav{
     cursor: pointer;
 }
 
-
 .icon{
     cursor:pointer;
+}
+
+.empty{
+    height:50vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accountCard .right{
+    max-width:800px;
+}
+
+.accountCard .imgBlock{
+    max-width:250px;
+}
+.accountCard{
+    display:Flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.button{
+    padding:0 15px;
+    color:#fff;
+    border:1px solid #fff;
+    background-color:transparent;
+    outline:none;
+    height:35px;
+    min-width:120px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.accountCard .button{
+    border:1px solid #333;
+    color:#333;
 }

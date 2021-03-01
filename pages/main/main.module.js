@@ -1,17 +1,17 @@
-var app = angular.module('appModule', ['ngRoute','header','footer']);
+var app = angular.module('appModule', ['ngRoute','header','footer', 'account']);
 
-app.config(['$routeProvider',
+angular.module('appModule').config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.when('/',
             {
                 template:'<list-block></list-block>',
             }).when('/account',
             {
-                template:'<account></account>',
+                template:'<account-list></account-list>',
             });
 }]);
 
-app.directive('listBlock', function () {
+angular.module('appModule').directive('listBlock', function () {
     return {
         templateUrl:"pages/main/components/list/list.component.html",
         restrict:'E',
@@ -21,7 +21,7 @@ app.directive('listBlock', function () {
     }
 });
 
-app.directive('modalBlock', function () {
+angular.module('appModule').directive('modalBlock', function () {
     return {
         templateUrl:"pages/main/components/modal/modal.component.html",
         restrict:"EA",
@@ -99,29 +99,32 @@ function modalController ($scope, dataTransfer) {
 
     function checkFavorites(){
         var title = dataTransfer.movie.title;
+        console.log(favorMovies.indexOf(favorMovies.find((entry) => entry.title === title)));
         return favorMovies.indexOf(favorMovies.find((entry) => entry.title === title));
     }
 
     function changeButton() {
         var index = checkFavorites();
+
         if (index === -1){
             modalCtrl.favor = 'Add to favorites';
         }
         else{
             modalCtrl.favor = 'Remove from favorites';
         }
-
     }
+
+    $scope.$on('buttonChange', function (data, event) {
+        modalCtrl.favor = event;
+    });
 
 }
 
-app.controller('switchController', function ($scope, dataTransfer) {
-
-
+angular.module('appModule').controller('switchController', function ($scope, dataTransfer) {
     var switchCtrl = this;
     var favorMovies = getFavorites();
-
-     function getFavorites(){
+    switchCtrl.favor = 'Add to favorites';
+    function getFavorites(){
         if(JSON.parse(localStorage.getItem('favs')) === null){
             return [];
         }
@@ -138,6 +141,7 @@ app.controller('switchController', function ($scope, dataTransfer) {
 
     function checkFavorites (){
         var title = dataTransfer.movie.title;
+        console.log(title, dataTransfer.movie, favorMovies);
         return favorMovies.indexOf(favorMovies.find((entry) => entry.title === title));
     }
 
@@ -149,7 +153,6 @@ app.controller('switchController', function ($scope, dataTransfer) {
         else{
             sendPack(dataTransfer.movies[0], 'nextMovie');
         }
-
     };
 
     switchCtrl.prevMovie = function prevMovie() {
@@ -164,13 +167,16 @@ app.controller('switchController', function ($scope, dataTransfer) {
 
     switchCtrl.favorites = function favorites () {
         if(favorMovies === [] || checkFavorites() === -1){
+            switchCtrl.favor = 'Remove from favorites';
             favorMovies.push(dataTransfer.movie);
             localStorage.setItem('favs', JSON.stringify(favorMovies));
-
+            $scope.$emit('buttonChange', switchCtrl.favor);
         }
         else{
+            switchCtrl.favor = 'Add to favorites';
             favorMovies.splice(checkFavorites(), 1);
             localStorage.setItem('favs', JSON.stringify(favorMovies));
+            $scope.$emit('buttonChange', switchCtrl.favor);
         }
     };
 
@@ -178,4 +184,6 @@ app.controller('switchController', function ($scope, dataTransfer) {
         dataTransfer.movie = data;
         $scope.$emit(event, data);
     }
+
+
 });

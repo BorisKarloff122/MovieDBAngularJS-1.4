@@ -1,5 +1,5 @@
-<div class="container" >
-    <div  ng-click="listCtrl.openPopup($index)" class="card" ng-if='listCtrl.resp' ng-repeat="movie in listCtrl.resp">
+<div class = "container">
+    <div ng-click="listCtrl.openPopup($index)" class="card" ng-if='listCtrl.resp' ng-repeat="movie in listCtrl.resp">
         <div class="imgBlock">
             <img alt="" src="{{movie.poster_path | imgNameRectifier}}">
         </div>

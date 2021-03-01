@@ -1,0 +1,22 @@
+
+<div class="container">
+    <div class="accountCard" ng-if='accountCtrl.favMovies !== null' ng-repeat="block in accountCtrl.favMovies">
+        <div class="img_block">
+            <img src="{{block.poster_path | imgNameRectifier}}">
+        </div>
+        <div class="right">
+            <div class="row">
+                <div class="title">{{block.title}}</div>
+                <button class="removeFav button" ng-click="accountCtrl.removeFromFavs($index)">Remove From Favorites</button>
+            </div>
+            <div class="overview">
+                {{block.overview}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container empty" ng-if="accountCtrl.favMovies === null || accountCtrl.favMovies.length === 0">
+    <div class="text">No favorites</div>
+</div>
