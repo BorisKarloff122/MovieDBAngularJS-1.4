@@ -1,15 +1,24 @@
-var app = angular.module('appModule', ['ngRoute','header','footer', 'account']);
+var app = angular.module('appModule',
+    ['ngRoute',
+     'header',
+     'footer',
+     'account',
+        'ngMessages',
+     'ngSanitize',
+     'ngMaterial',
+        'ui.bootstrap'
+    ]);
+
 
 angular.module('appModule').config(['$routeProvider',
     function ($routeProvider) {
-        $routeProvider.when('/',
-            {
-                template:'<list-block></list-block>',
-            }).when('/account',
-            {
-                template:'<account-list></account-list>',
-            });
+        $routeProvider
+            .when('/', {template:'<list-block></list-block>',})
+            .when('/account', {template:'<account-list></account-list>',});
 }]);
+
+
+
 
 angular.module('appModule').directive('listBlock', function () {
     return {
@@ -39,19 +48,29 @@ function listController ($http, dataTransfer, $scope) {
     var key = 'ebea8cfca72fdff8d2624ad7bbf78e4c';
     var listCtrl = this;
 
-    listCtrl.getMovies = function () {
+
+    listCtrl.init = function(){
+        listCtrl.getMovies(1);
+    };
+
+
+
+    listCtrl.getMovies = function (page) {
+        listCtrl.currentPage = page;
+        console.log(page);
         $http({
             method: 'GET',
-            url: baseURLAddress + '?api_key=' + key + '&language=ru_RU' + 'page=' + 1
+            url: baseURLAddress + '?api_key=' + key + '&language=ru_RU&' + 'page=' + page
         }).then(function success(response) {
-            listCtrl.resp = (response.data.results);
-            dataTransfer.movies = listCtrl.resp;
+            listCtrl.resp = (response.data);
+            listCtrl.totalPages = response.data.total_results;
+            dataTransfer.movies = listCtrl.resp.results;
+
             $scope.$broadcast('moviesChange', dataTransfer.movies);
         });
     };
 
-    listCtrl.getMovies();
-
+    listCtrl.init();
     $scope.$on('moviesChange', function () {
         listCtrl.openPopup = function openPopup(index) {
             dataTransfer.movie = dataTransfer.movies[index];

@@ -14,6 +14,7 @@ body{
 
 .modal .container{
     max-width:1200px;
+    width:100%!important;
     margin:0 auto;
     display:flex;
     align-items: center;justify-content:space-between;
@@ -21,9 +22,11 @@ body{
 
 
 .modal .container .right{
-    max-width:800px
+    max-width:600px
 }
-
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after{
+    display:none!important;
+}
 header{
     width:100%;
     left:0;
@@ -45,6 +48,7 @@ list-block .container{
 
 .container{
     display:flex;
+    width:100%!important;
     align-items: center;
     max-width:1440px;
     justify-content: space-between;
@@ -145,13 +149,14 @@ list-block .container{
 }
 
 .close{
-    font-size:30px;
+    font-size:40px;
     font-weight:bold;
     display:flex;
     position: absolute;
     right:20px;
-    color:#fff;
+    color: #ffffff !important;
     top:20px;
+    opacity: 1!important;
     width:50px;
     height:50px;
     align-items:center;
@@ -174,18 +179,32 @@ list-block .container{
 }
 
 .accountCard .right{
-    max-width:800px;
+    max-width:850px;
 }
 
-.accountCard .imgBlock{
+
+.paginator{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.accountCard .img_block img{
+    width:100%;
+    height:auto;
+}
+.accountCard .img_block{
     max-width:250px;
+    margin-right:20px;
 }
 .accountCard{
+    margin:15px auto;
+    max-width:1200px;
     display:Flex;
     align-items: flex-start;
     justify-content: space-between;
 }
-
 
 .button{
     padding:0 15px;
@@ -201,5 +220,17 @@ list-block .container{
 
 .accountCard .button{
     border:1px solid #333;
+    margin: 8px;
     color:#333;
+}
+
+.accountCard .title{
+    font-weight:bold;
+    font-size:16px;
+}
+
+a{
+    outline:none;
+    color:#333;
+    text-decoration: none;
 }

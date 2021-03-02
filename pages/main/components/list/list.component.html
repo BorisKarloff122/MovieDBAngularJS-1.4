@@ -1,5 +1,5 @@
 <div class = "container">
-    <div ng-click="listCtrl.openPopup($index)" class="card" ng-if='listCtrl.resp' ng-repeat="movie in listCtrl.resp">
+    <div ng-click="listCtrl.openPopup($index)" class="card" ng-if='listCtrl.resp' ng-repeat="movie in listCtrl.resp.results">
         <div class="imgBlock">
             <img alt="" src="{{movie.poster_path | imgNameRectifier}}">
         </div>
@@ -7,6 +7,18 @@
             {{movie.title}}
         </div>
     </div>
+
+
     <modal-block></modal-block>
 </div>
 
+<div class="paginator">
+
+<pagination ng-if="listCtrl.totalPages"
+            ng-model="listCtrl.currentPage"
+            total-items="listCtrl.totalPages"
+            max-size="20"
+            ng-change = "listCtrl.getMovies(listCtrl.currentPage)"
+            boundary-links="true">
+</pagination>
+</div>
