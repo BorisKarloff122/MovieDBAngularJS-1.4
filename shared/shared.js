@@ -13,11 +13,7 @@ shared.directive('paginatorBlock', function () {
             paginationRange: '=',
             borderButtons: '=',
             total: '='
-        },
-        link: function (scope) {
-
         }
-
     }
 } );
 
@@ -25,7 +21,6 @@ shared.directive('paginatorBlock', function () {
 function paginatorController($scope) {
     var self = this;
     self.point = self.page;
-    self.buttonsArray  = [];
     self.paginate = paginate;
     self.goToFirst = goToFirst;
     self.goToLast = goToLast;
@@ -35,19 +30,24 @@ function paginatorController($scope) {
     }
 
     function init() {
-        alert(self.point);
+
         if (self.point === 1){
+            self.startPoint = 1;
+            self.endPoint = self.paginationRange;
+        }
+        else if( self.point > 1){
             self.startPoint = self.point -  Math.floor(self.paginationRange/2);
             self.endPoint = self.point + Math.floor(self.paginationRange/2);
         }
-        else{
-            self.startPoint = self.point -  Math.floor(self.paginationRange/2);
-            self.endPoint = self.point + Math.floor(self.paginationRange/2);
+        else if(self.point === self.total){
+            self.startPoint = self.total - self.paginationRange;
+            self.endPoint = self.total;
         }
         generateArray();
     }
 
     function generateArray() {
+        self.buttonsArray  = [];
         for(let i = self.startPoint; i <= self.endPoint; i++ ){
             self.buttonsArray.push(i);
         }
@@ -55,7 +55,7 @@ function paginatorController($scope) {
 
     function goToFirst() {
         $scope.$emit(self.action, 1);
-        self.page = 1;
+        self.point = 1;
         init();
     }
     

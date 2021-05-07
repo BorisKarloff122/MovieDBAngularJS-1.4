@@ -235,3 +235,10 @@ a{
     color:#333;
     text-decoration: none;
 }
+
+
+.paginator-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -2,7 +2,7 @@ var account = angular.module('account', []);
 
 angular.module('account').directive('accountList', function () {
    return{
-       templateUrl:'pages/account/component/list/list.component.html',
+       templateUrl:'pages/account/list.component.html',
        controller: accountController,
        controllerAs: 'accountCtrl',
        restrict: 'EA',
