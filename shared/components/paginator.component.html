@@ -1,0 +1,7 @@
+<div class="paginator-container">
+    <md-button class="md-raised" ng-if="vm.borderButtons" ng-click="vm.goToFirst()">First</md-button>
+    <div class="pag-buttons">
+        <md-button class="md-raised" ng-click = "vm.paginate(button)" ng-repeat = 'button in vm.buttonsArray'>{{button}}</md-button>
+    </div>
+    <md-button class="md-raised" ng-if="vm.borderButtons" ng-click="vm.goToLast()">Last</md-button>
+</div>

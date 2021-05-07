@@ -1,0 +1,24 @@
+<div class = "container">
+    <div ng-click="listCtrl.openPopup($index)"
+         class="card"
+         ng-if='listCtrl.resp'
+         ng-repeat="movie in listCtrl.resp.results">
+        <div class="imgBlock">
+            <img alt = ""
+                 src = "{{movie.poster_path | imgNameRectifier}}">
+        </div>
+        <div class="name">
+            {{movie.title}}
+        </div>
+    </div>
+
+    <modal-block></modal-block>
+</div>
+
+
+<paginator-block ng-if="listCtrl.currentPage"
+                 total="listCtrl.totalPages"
+                 action = "paginateMovies"
+                 border-buttons="true"
+                 page = 'listCtrl.currentPage'></paginator-block>
+

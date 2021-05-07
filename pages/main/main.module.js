@@ -3,10 +3,10 @@ var app = angular.module('appModule',
      'header',
      'footer',
      'account',
-        'ngMessages',
+     'ngMessages',
      'ngSanitize',
      'ngMaterial',
-        'ui.bootstrap'
+     'shared'
     ]);
 
 
@@ -22,7 +22,7 @@ angular.module('appModule').config(['$routeProvider',
 
 angular.module('appModule').directive('listBlock', function () {
     return {
-        templateUrl:"pages/main/components/list/list.component.html",
+        templateUrl:"pages/main/list.component.html",
         restrict:'E',
         controller: listController,
         controllerAs: 'listCtrl',
@@ -32,9 +32,9 @@ angular.module('appModule').directive('listBlock', function () {
 
 angular.module('appModule').directive('modalBlock', function () {
     return {
-        templateUrl:"pages/main/components/modal/modal.component.html",
+        templateUrl:"pages/main/modal.component.html",
         restrict:"EA",
-        controller:modalController,
+        controller: modalController,
         controllerAs:'modalCtrl',
         bindToController: true,
         bindings: {
@@ -47,30 +47,27 @@ function listController ($http, dataTransfer, $scope) {
     var baseURLAddress = 'https://api.themoviedb.org/3/movie/now_playing';
     var key = 'ebea8cfca72fdff8d2624ad7bbf78e4c';
     var listCtrl = this;
-
-
+    listCtrl.currentPage = 1;
     listCtrl.init = function(){
-        listCtrl.getMovies(1);
+        listCtrl.getMovies(listCtrl.currentPage);
     };
 
-
-
+    $scope.$on('paginateMovies', function (event, data) {
+        listCtrl.getMovies(data);
+    });
+    
     listCtrl.getMovies = function (page) {
         listCtrl.currentPage = page;
-        console.log(page);
-        $http({
-            method: 'GET',
-            url: baseURLAddress + '?api_key=' + key + '&language=ru_RU&' + 'page=' + page
-        }).then(function success(response) {
+        $http.get(baseURLAddress + '?api_key=' + key + '&language=ru_RU&' + 'page=' + page).then(function (response) {
             listCtrl.resp = (response.data);
-            listCtrl.totalPages = response.data.total_results;
+            listCtrl.totalPages = response.data.total_pages;
             dataTransfer.movies = listCtrl.resp.results;
-
             $scope.$broadcast('moviesChange', dataTransfer.movies);
         });
     };
 
     listCtrl.init();
+
     $scope.$on('moviesChange', function () {
         listCtrl.openPopup = function openPopup(index) {
             dataTransfer.movie = dataTransfer.movies[index];
@@ -116,21 +113,19 @@ function modalController ($scope, dataTransfer) {
         modalCtrl.movie = data
     };
 
-    function checkFavorites(){
-        var title = dataTransfer.movie.title;
-        console.log(favorMovies.indexOf(favorMovies.find((entry) => entry.title === title)));
-        return favorMovies.indexOf(favorMovies.find((entry) => entry.title === title));
-    }
-
     function changeButton() {
         var index = checkFavorites();
-
-        if (index === -1){
+        if (!JSON.parse(localStorage.getItem('favorites')) || index === -1){
             modalCtrl.favor = 'Add to favorites';
         }
         else{
             modalCtrl.favor = 'Remove from favorites';
         }
+    }
+
+    function checkFavorites(){
+        var title = dataTransfer.movie.title;
+        return favorMovies.indexOf(favorMovies.find((entry) => entry.title === title));
     }
 
     $scope.$on('buttonChange', function (data, event) {
@@ -143,9 +138,10 @@ angular.module('appModule').controller('switchController', function ($scope, dat
     var switchCtrl = this;
     var favorMovies = getFavorites();
     switchCtrl.favor = 'Add to favorites';
+
     function getFavorites(){
         if(JSON.parse(localStorage.getItem('favs')) === null){
-            return [];
+           return [];
         }
         else{
            return JSON.parse(localStorage.getItem('favs'));
@@ -160,7 +156,7 @@ angular.module('appModule').controller('switchController', function ($scope, dat
 
     function checkFavorites (){
         var title = dataTransfer.movie.title;
-        console.log(title, dataTransfer.movie, favorMovies);
+
         return favorMovies.indexOf(favorMovies.find((entry) => entry.title === title));
     }
 
@@ -191,7 +187,7 @@ angular.module('appModule').controller('switchController', function ($scope, dat
             localStorage.setItem('favs', JSON.stringify(favorMovies));
             $scope.$emit('buttonChange', switchCtrl.favor);
         }
-        else{
+        else if(checkFavorites() !== -1){
             switchCtrl.favor = 'Add to favorites';
             favorMovies.splice(checkFavorites(), 1);
             localStorage.setItem('favs', JSON.stringify(favorMovies));
@@ -203,6 +199,4 @@ angular.module('appModule').controller('switchController', function ($scope, dat
         dataTransfer.movie = data;
         $scope.$emit(event, data);
     }
-
-
 });
